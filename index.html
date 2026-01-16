@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Céu das Araucárias | Chácara para Eventos em São José dos Pinhais e Curitiba</title>
+    <meta name="description" content="Espaço exclusivo para casamentos, eventos corporativos e retiros em São José dos Pinhais. Infraestrutura completa em meio à natureza, a minutos de Curitiba.">
+    <meta name="keywords" content="chácara para eventos, casamento no campo Curitiba, espaço para festas São José dos Pinhais, eventos corporativos, locação de chácara PR">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;500&family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'forest': '#1A2F23',
+              'gold': '#1A2F23', 
+              'linen': '#F9F7F2',
+              'clay': '#A65D43',
+              'sage': '#7C8363'
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'serif'],
+              handwritten: ['Caveat', 'cursive'],
+              signature: ['Herr Von Muellerhoff', 'cursive'],
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F2;
+            color: #1A2F23;
+            scroll-behavior: smooth;
+        }
+        .arc-container {
+            perspective: 1200px;
+        }
+        .floating-image {
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .floating-image:hover {
+            transform: scale(1.1) translateY(-15px) rotate(2deg) !important;
+            box-shadow: 0 30px 60px -12px rgba(26, 47, 35, 0.2);
+            z-index: 50 !important;
+        }
+        
+        .handwriting-container {
+            transform: rotate(-3deg);
+            transform-origin: center center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        .handwriting-reveal {
+            display: inline-block;
+            white-space: nowrap;
+            mask-image: linear-gradient(110deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 55%);
+            mask-size: 250% 100%;
+            mask-position: 100% 0;
+            opacity: 0;
+            animation: writeInk 3.5s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes writeInk {
+            0% { mask-position: 100% 0; opacity: 0; }
+            10% { opacity: 1; }
+            100% { mask-position: 0% 0; opacity: 1; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F9F7F2; }
+        ::-webkit-scrollbar-thumb { background: #1A2F23; border-radius: 10px; }
+        
+        .vertical-text { writing-mode: vertical-rl; }
+
+        .img-natural {
+            filter: sepia(0.1) saturate(1.1);
+        }
+
+        /* Grain Overlay */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-icons/fa": "https://esm.sh/react-icons@4.12.0/fa?external=react",
+    "react-icons/": "https://esm.sh/react-icons@^5.5.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
